@@ -16,7 +16,7 @@ def string_to_rubiks_dict(cube_string):
     return rubiks_map
 
 # Example usage:
-rubik_string = 'WGGWOROYYBYOYRGGWRGYORBYOBOWRGYOWWRBRBWBGBRYRBOBYYGOGW'
+rubik_string = 'OBGWYGBBWRRWYBGRGGYOGROGOYBBRWYWWYOYGORRGBOBWOWYORWRYB'
 cube_dict = string_to_rubiks_dict(rubik_string)
 
 print(cube_dict)
