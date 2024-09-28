@@ -22,10 +22,10 @@ def F_inv(rubiks_cube):
     new_cube['F4'], new_cube['F5'], new_cube['F6'] = rubiks_cube['F2'], rubiks_cube['F5'], rubiks_cube['F8']
     new_cube['F7'], new_cube['F8'], new_cube['F9'] = rubiks_cube['F1'], rubiks_cube['F4'], rubiks_cube['F7']
     
-    new_cube['U7'], new_cube['U8'], new_cube['U9'], new_cube['L3'], new_cube['L6'], new_cube['L9'], \
-    new_cube['D1'], new_cube['D2'], new_cube['D3'], new_cube['R1'], new_cube['R4'], new_cube['R7'] = \
-    rubiks_cube['R1'], rubiks_cube['R4'], rubiks_cube['R7'], rubiks_cube['U9'], rubiks_cube['U8'], rubiks_cube['U7'], \
-    rubiks_cube['L9'], rubiks_cube['L6'], rubiks_cube['L3'], rubiks_cube['D3'], rubiks_cube['D2'], rubiks_cube['D1']
+    new_cube['U7'], new_cube['U8'], new_cube['U9']=rubiks_cube['R1'], rubiks_cube['R4'], rubiks_cube['R7'] 
+    new_cube['R1'], new_cube['R4'], new_cube['R7']=  rubiks_cube['D3'], rubiks_cube['D2'], rubiks_cube['D1']
+    new_cube['D1'], new_cube['D2'], new_cube['D3']=rubiks_cube['L3'], rubiks_cube['L6'], rubiks_cube['L9']
+    new_cube['L3'], new_cube['L6'], new_cube['L9']=rubiks_cube['U9'], rubiks_cube['U8'], rubiks_cube['U7']
     
     return new_cube
 
@@ -254,9 +254,8 @@ def print_2d_cube(cube):
         print("       {} {} {}".format(cube['D7'], cube['D8'], cube['D9']))
 
 # Sample Rubik's cube (make sure to initialize rubiks_cube properly before this loop)
-cont = 'y'
 
-# # testing moves
+# testing moves
 # while cont == 'y':
 
 #     option = input("What move to do? ")

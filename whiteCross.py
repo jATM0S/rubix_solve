@@ -61,18 +61,23 @@ def whiteCross(rubiks_cube):
     side_pieces=[['F2','U8'],['F4','L6'],['F6','R4'],['F8','D2'],['U2','B2'],['U4','L2'],['U6','R2'],['B4','R6'],['B6','L4'],['B8','D8'],['R8','D6'],['L8','D4']]
     sequence=[]
     for i in range(4):
-        moves.print_2d_cube(rubiks_cube)
+        # moves.print_2d_cube(rubiks_cube)
         white_side_pieces=dectect_white_side_pieces(rubiks_cube,side_pieces)
         print(white_side_pieces)
 
         required_piece=frontCenter_piece_position(rubiks_cube,white_side_pieces)
         print(required_piece)
         
-        sequence.extend(bring_piece_to_F8(rubiks_cube,side_pieces,required_piece))
+        face_moves=bring_piece_to_F8(rubiks_cube,side_pieces,required_piece)
+        print(face_moves)
+        for move in face_moves:
+            rubiks_cube = whiteCrossCases.execute_move(rubiks_cube, move)
+            moves.print_2d_cube(rubiks_cube) 
         
         rubiks_cube=moves.rotateLeft(rubiks_cube)
+        moves.print_2d_cube(rubiks_cube)
+        sequence.extend(face_moves)
         sequence.append('rl')
-        print(sequence)
     return sequence
 
-whiteCross(rubiks_cube)
+print(whiteCross(rubiks_cube))
