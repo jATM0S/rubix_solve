@@ -9,40 +9,6 @@ import moves
 #     'U1': 'Y', 'U2': 'Y', 'U3': 'Y', 'U4': 'Y', 'U5': 'Y', 'U6': 'Y', 'U7': 'Y', 'U8': 'Y', 'U9': 'Y',  
 #     'D1': 'W', 'D2': 'W', 'D3': 'W', 'D4': 'W', 'D5': 'W', 'D6': 'W', 'D7': 'W', 'D8': 'W', 'D9': 'W'   
 # }
-def execute_move(rubiks_cube,move):
-    if move == "f":
-        return moves.F(rubiks_cube)
-    elif move == "f'":
-        return moves.F_inv(rubiks_cube) 
-    elif move == "r":
-        return moves.R(rubiks_cube) 
-    elif move == "r'":
-        return moves.R_inv(rubiks_cube) 
-    elif move == "l":
-        return moves.L(rubiks_cube) 
-    elif move == "l'":
-        return moves.L_inv(rubiks_cube) 
-    elif move == "u":
-        return moves.U(rubiks_cube) 
-    elif move == "u'":
-        return  moves.U_inv(rubiks_cube) 
-    elif move == "d":
-        return moves.D(rubiks_cube) 
-    elif move == "d'":
-        return moves.D_inv(rubiks_cube) 
-    elif move == "b":
-        return moves.B(rubiks_cube) 
-    elif move == "b'":
-        return moves.B_inv(rubiks_cube) 
-    elif move == "rr":
-        return moves.rotateRight(rubiks_cube) 
-    elif move == "rl":
-        return moves.rotateLeft(rubiks_cube) 
-    elif move == "ru":
-        return moves.rotateUp(rubiks_cube) 
-    elif move == "rd":
-        return moves.rotateDown(rubiks_cube) 
-
 # piece in front tested    
 def piece_on_front_top(rubiks_cube):
     sequence = []
@@ -55,7 +21,7 @@ def piece_on_front_top(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube,move)
     #     moves.print_2d_cube(rubiks_cube)
     return sequence
     
@@ -66,11 +32,11 @@ def piece_on_front_right(rubiks_cube):
     if rubiks_cube['F6'] == rubiks_cube['F5']:
         sequence = ['f']
     else:
-        sequence = ['r','u','f','f']
+        sequence = ['r','u',"r'",'f','f']
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube, move)
     #     moves.print_2d_cube(rubiks_cube) 
     return sequence
 
@@ -85,7 +51,7 @@ def piece_on_front_left(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube, move)
     #     moves.print_2d_cube(rubiks_cube) 
     return sequence
 
@@ -100,7 +66,7 @@ def piece_on_front_bottom(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube, move)
     #     moves.print_2d_cube(rubiks_cube) 
     return sequence
 
@@ -116,7 +82,7 @@ def piece_on_right_top(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube,move)
     #     moves.print_2d_cube(rubiks_cube)
     return sequence
         
@@ -131,7 +97,7 @@ def piece_on_right_right(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube,move)
     #     moves.print_2d_cube(rubiks_cube)
     return sequence
 
@@ -146,7 +112,7 @@ def piece_on_right_bottom(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube,move)
     #     moves.print_2d_cube(rubiks_cube)
     return sequence
 
@@ -162,7 +128,7 @@ def piece_on_left_top(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube,move)
     #     moves.print_2d_cube(rubiks_cube)
     return sequence
         
@@ -177,7 +143,7 @@ def piece_on_left_left(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube,move)
     #     moves.print_2d_cube(rubiks_cube)
     return sequence
 
@@ -192,7 +158,7 @@ def piece_on_left_bottom(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube,move)
     #     moves.print_2d_cube(rubiks_cube)
     return sequence
 
@@ -208,7 +174,7 @@ def piece_on_back_top(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube,move)
     #     moves.print_2d_cube(rubiks_cube)
     return sequence
 
@@ -223,7 +189,7 @@ def piece_on_back_bottom(rubiks_cube):
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
-    #     rubiks_cube = execute_move(rubiks_cube, move)
+    #     rubiks_cube = moves.execute_move(rubiks_cube,move)
     #     moves.print_2d_cube(rubiks_cube)
     return sequence
 

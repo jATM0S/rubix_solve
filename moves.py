@@ -1,5 +1,39 @@
 cont='y'
 option='y'
+
+def execute_move(rubiks_cube,move):
+    if move == "f":
+        return F(rubiks_cube)
+    elif move == "f'":
+        return F_inv(rubiks_cube) 
+    elif move == "r":
+        return R(rubiks_cube) 
+    elif move == "r'":
+        return R_inv(rubiks_cube) 
+    elif move == "l":
+        return L(rubiks_cube) 
+    elif move == "l'":
+        return L_inv(rubiks_cube) 
+    elif move == "u":
+        return U(rubiks_cube) 
+    elif move == "u'":
+        return  U_inv(rubiks_cube) 
+    elif move == "d":
+        return D(rubiks_cube) 
+    elif move == "d'":
+        return D_inv(rubiks_cube) 
+    elif move == "b":
+        return B(rubiks_cube) 
+    elif move == "b'":
+        return B_inv(rubiks_cube) 
+    elif move == "rr":
+        return rotateRight(rubiks_cube) 
+    elif move == "rl":
+        return rotateLeft(rubiks_cube) 
+    elif move == "ru":
+        return rotateUp(rubiks_cube) 
+    elif move == "rd":
+        return rotateDown(rubiks_cube) 
 # corrected f f' r' r u u' l l' b b'
 def F(rubiks_cube):
         # Step 1: Rotate the front face clockwise

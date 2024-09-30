@@ -5,7 +5,8 @@ def string_to_rubiks_dict(cube_string):
         raise ValueError("The cube string must contain exactly 54 characters.")
     
     # Mapping from string positions to the cube dictionary
-    face_order = ['U', 'R', 'F', 'D', 'L', 'B']
+    # face_order = ['U', 'R', 'F', 'D', 'L', 'B']
+    face_order = ['F','R','B','L','U','D']
     rubiks_map = {}
     
     for i, face in enumerate(face_order):
@@ -16,7 +17,8 @@ def string_to_rubiks_dict(cube_string):
     return rubiks_map
 
 # Example usage:
-rubik_string = 'OBGWYGBBWRRWYBGRGGYOGROGOYBBRWYWWYOYGORRGBOBWOWYORWRYB'
+# rubik_string = 'OBGWYGBBWRRWYBGRGGYOGROGOYBBRWYWWYOYGORRGBOBWOWYORWRYB'
+rubik_string = 'OROYROBYYGOBBGBGGWOYWWOOROORRGWBGYRRBBWWYGYBWYRRGWWBYG'
 cube_dict = string_to_rubiks_dict(rubik_string)
 
 print(cube_dict)
