@@ -1,5 +1,5 @@
 import moves
-
+import frequentSequences
 # to test cube un comment rubiks_cube and uncomment the function at the end and change the names of condition
 # rubiks_cube = {
 #     'F1': 'G', 'F2': 'G', 'F3': 'G', 'F4': 'G', 'F5': 'G', 'F6': 'G', 'F7': 'G', 'F8': 'G', 'F9': 'G',  
@@ -9,7 +9,7 @@ import moves
 #     'U1': 'Y', 'U2': 'Y', 'U3': 'Y', 'U4': 'Y', 'U5': 'Y', 'U6': 'Y', 'U7': 'Y', 'U8': 'Y', 'U9': 'Y',  
 #     'D1': 'W', 'D2': 'W', 'D3': 'W', 'D4': 'W', 'D5': 'W', 'D6': 'W', 'D7': 'W', 'D8': 'W', 'D9': 'W'   
 # }
-rubiks_cube={'U1': 'O', 'U2': 'B', 'U3': 'G', 'U4': 'W', 'U5': 'Y', 'U6': 'G', 'U7': 'B', 'U8': 'B', 'U9': 'W', 'R1': 'R', 'R2': 'R', 'R3': 'W', 'R4': 'Y', 'R5': 'B', 'R6': 'G', 'R7': 'R', 'R8': 'G', 'R9': 'G', 'F1': 'Y', 'F2': 'O', 'F3': 'G', 'F4': 'R', 'F5': 'O', 'F6': 'G', 'F7': 'O', 'F8': 'Y', 'F9': 'B', 'D1': 'B', 'D2': 'R', 'D3': 'W', 'D4': 'Y', 'D5': 'W', 'D6': 'W', 'D7': 'Y', 'D8': 'O', 'D9': 'Y', 'L1': 'G', 'L2': 'O', 'L3': 'R', 'L4': 'R', 'L5': 'G', 'L6': 'B', 'L7': 'O', 'L8': 'B', 'L9': 'W', 'B1': 'O', 'B2': 'W', 'B3': 'Y', 'B4': 'O', 'B5': 'R', 'B6': 'W', 'B7': 'R', 'B8': 'Y', 'B9': 'B'}
+
 # piece in front tested    
 
 def lefty_algorithm():
@@ -28,7 +28,7 @@ def front_top_left(rubiks_cube):
         sequence = ["l'","u'",'l']
     else:
         for x in range(3):
-            sequence.extend(lefty_algorithm())
+            sequence.extend(frequentSequences.lefty_sequence())
     
     # Execute the sequence of moves and print the cube after each one
     # for move in sequence:
@@ -147,7 +147,7 @@ def left_left_bottom(rubiks_cube):
     
     # Decide on the sequence of moves based on the condition
 
-    sequence.extend(['b','u',"b'"])
+    sequence.extend(["b'","u'",'b'])
     for move in sequence:
         rubiks_cube_copy=moves.execute_move(rubiks_cube_copy,move)
     sequence.extend(front_top_left(rubiks_cube_copy))    # Execute the sequence of moves and print the cube after each one
