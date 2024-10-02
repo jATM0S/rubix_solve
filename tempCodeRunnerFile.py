@@ -1,15 +1,1 @@
-    top_pieces=dectect_top_pieces(rubiks_cube)
-    print(top_pieces)
-    
-    if top_pieces:
-        matchingFace_moves=move_for_required_face(rubiks_cube,top_pieces)
-        for move in matchingFace_moves:
-            rubiks_cube=moves.execute_move(rubiks_cube,move)
-        sequence.extend(matchingFace_moves)
-        print(matchingFace_moves)
-
-        sequence.extend(secondLayerCases.piece_on_front_top(rubiks_cube))
-        # Execute the sequence of moves and print the cube after each one
-        for move in sequence:
-            rubiks_cube = moves.execute_move(rubiks_cube,move)
-            moves.print_2d_cube(rubiks_cube)
+'U5': 'Y', 'U6': 'G', 'U7': 'B', 'U8': 'B', 'U9': 'W', 'R1': 'R', 'R2': 'R', 'R3': 'W', 'R4': 'Y', 'R5': 'B', 'R6': 'G', 'R7': 'R', 'R8': 'G', 'R9': 'G', 'F1': 'Y', 'F2': 'O', 'F3': 'G', 'F4': 'R', 'F5': 'O', 'F6': 'G', 'F7': 'O', 'F8': 'Y', 'F9': 'B', 'D1': 'B', 'D2': 'R', 'D3': 'W', 'D4': 'Y', 'D5': 'W', 'D6': 'W', 'D7': 'Y', 'D8': 'O', 'D9': 'Y', 'L1': 'G', 'L2': 'O', 'L3': 'R', 'L4': 'R', 'L5': 'G', 'L6': 'B', 'L7': 'O', 'L8': 'B', 'L9': 'W', 'B1': 'O', 'B2': 'W', 'B3': 'Y', 'B4': 'O', 'B5': 'R', 'B6': 'W', 'B7': 'R', 'B8': 'Y', 'B9': 'B

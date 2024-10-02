@@ -16,22 +16,22 @@ def piece_on_front_top(rubiks_cube):
     return sequence
 
 def piece_on_frontLeft(rubiks_cube):
-    sequence=["u'"]
+    sequence=[]
     sequence.extend(frequentSequences.lefty_sequence())
-    sequence.extend(['f','u',"f'","u'"])
+    sequence.extend(['f','u',"f'"])
     return sequence
 def piece_on_frontRight(rubiks_cube):
-    sequence=['u']        
+    sequence=[]        
     sequence.extend(frequentSequences.righty_sequence())
-    sequence.extend["f'","u'",'f']
+    sequence.extend(["f'","u'",'f'])
     return sequence
 def piece_on_rightRight(rubiks_cube):
     sequence=[]
-    sequence.extend['b','u',"b'","u'"]
-    sequence.extend["r'","u'",'r']
+    sequence.extend(['b','u',"b'","u'"])
+    sequence.extend(["r'","u'",'r'])
     return sequence
 def piece_on_leftLeft(rubiks_cube):
     sequence=[]
-    sequence.extend["b'","u'",'b','u']
-    sequence.extend['l','u',"l'","u'"]
+    sequence.extend(["b'","u'",'b','u'])
+    sequence.extend(['l','u',"l'"])
     return sequence
