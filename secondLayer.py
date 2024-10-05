@@ -49,7 +49,6 @@ def move_for_required_face(rubiks_cube,top_pieces):
 
     # move the top piece until it matches the front
     while rubiks_cube['F2'] != rubiks_cube['F5'] or (rubiks_cube['U8'] != rubiks_cube['L5'] and rubiks_cube['U8'] != rubiks_cube['R5']):
-        print("toptoping")
         rubiks_cube=moves.execute_move(rubiks_cube,'u')
         top_move.append('u')
 
@@ -80,12 +79,11 @@ def state(rubiks_cube):
     return is_solved,unsolved_piece
 
 def top_to_correct_position(rubiks_cube,top_pieces):
-    print("top_to_correc_position")
+    print("top_to_correct_position")
     sequence=[]
     
     matchingFace_moves=move_for_required_face(rubiks_cube,top_pieces)
     print(matchingFace_moves)
-    print("somethingsomething")
     for move in matchingFace_moves:
         rubiks_cube=moves.execute_move(rubiks_cube,move)
         moves.print_2d_cube(rubiks_cube)
@@ -116,7 +114,7 @@ def secondLayer(rubiks_cube):
             is_solved,unsolved_piece=state(rubiks_cube)
             if is_solved==True:
                 moves.print_2d_cube(rubiks_cube)
-                return sequence
+                return sequence,rubiks_cube
             else:
                 print(unsolved_piece)
                 bringing_moves=bring_piece_to_top(rubiks_cube,unsolved_piece)
@@ -131,7 +129,7 @@ def secondLayer(rubiks_cube):
                 
                 correct_position_moves,rubiks_cube= top_to_correct_position(rubiks_cube,top_pieces)
                 sequence.extend(correct_position_moves)
-    return sequence
+    return sequence,rubiks_cube
 
 
 # print(secondLayer(rubiks_cube))

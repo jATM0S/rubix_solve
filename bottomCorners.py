@@ -80,7 +80,7 @@ def bottomCorners(rubiks_cube):
         rubiks_cube=moves.rotateLeft(rubiks_cube)
         moves.print_2d_cube(rubiks_cube)
         sequence.append('rl')
-    return sequence
+    return sequence,rubiks_cube
 
 
 # print(bottomCorners(rubiks_cube))

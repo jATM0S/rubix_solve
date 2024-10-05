@@ -16,10 +16,7 @@ def string_to_rubiks_dict(cube_string):
     
     return rubiks_map
 
-
-
-# already whitecrossed
-rubik_string=("YYBGRYWRRRRYGGYWGBRBGOOOOOBRBOGBRWBOWYGOYBGRYGWBWWWOWY")
+rubik_string=("OYRGGGGGGYOYOOOOOOOYRBBBBBBGGGRRRRRRYRBYYYYBBWWWWWWWWW")
 
 cube_dict = string_to_rubiks_dict(rubik_string)
 
