@@ -16,7 +16,7 @@ def string_to_rubiks_dict(cube_string):
     
     return rubiks_map
 
-rubik_string=("OYRGGGGGGYOYOOOOOOOYRBBBBBBGGGRRRRRRYRBYYYYBBWWWWWWWWW")
+rubik_string=("YROGGGGGGYBYOOOOOOROYBBBBBBOGRRRRRRRBYGYYYBYGWWWWWWWWW")
 
 cube_dict = string_to_rubiks_dict(rubik_string)
 
