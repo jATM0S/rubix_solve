@@ -31,5 +31,5 @@
 
 
 # CUBES WITH YELLOR CROSS
-rubik_string=("YROGGGGGGYBYOOOOOOROYBBBBBBOGRRRRRRRBYGYYYBYGWWWWWWWWW")
-rubiks_cube={'F1': 'Y', 'F2': 'R', 'F3': 'O', 'F4': 'G', 'F5': 'G', 'F6': 'G', 'F7': 'G', 'F8': 'G', 'F9': 'G', 'R1': 'Y', 'R2': 'B', 'R3': 'Y', 'R4': 'O', 'R5': 'O', 'R6': 'O', 'R7': 'O', 'R8': 'O', 'R9': 'O', 'B1': 'R', 'B2': 'O', 'B3': 'Y', 'B4': 'B', 'B5': 'B', 'B6': 'B', 'B7': 'B', 'B8': 'B', 'B9': 'B', 'L1': 'O', 'L2': 'G', 'L3': 'R', 'L4': 'R', 'L5': 'R', 'L6': 'R', 'L7': 'R', 'L8': 'R', 'L9': 'R', 'U1': 'B', 'U2': 'Y', 'U3': 'G', 'U4': 'Y', 'U5': 'Y', 'U6': 'Y', 'U7': 'B', 'U8': 'Y', 'U9': 'G', 'D1': 'W', 'D2': 'W', 'D3': 'W', 'D4': 'W', 'D5': 'W', 'D6': 'W', 'D7': 'W', 'D8': 'W', 'D9': 'W'}
+# rubik_string=("YROGGGGGGYBYOOOOOOROYBBBBBBOGRRRRRRRBYGYYYBYGWWWWWWWWW")
+# rubiks_cube={'F1': 'Y', 'F2': 'R', 'F3': 'O', 'F4': 'G', 'F5': 'G', 'F6': 'G', 'F7': 'G', 'F8': 'G', 'F9': 'G', 'R1': 'Y', 'R2': 'B', 'R3': 'Y', 'R4': 'O', 'R5': 'O', 'R6': 'O', 'R7': 'O', 'R8': 'O', 'R9': 'O', 'B1': 'R', 'B2': 'O', 'B3': 'Y', 'B4': 'B', 'B5': 'B', 'B6': 'B', 'B7': 'B', 'B8': 'B', 'B9': 'B', 'L1': 'O', 'L2': 'G', 'L3': 'R', 'L4': 'R', 'L5': 'R', 'L6': 'R', 'L7': 'R', 'L8': 'R', 'L9': 'R', 'U1': 'B', 'U2': 'Y', 'U3': 'G', 'U4': 'Y', 'U5': 'Y', 'U6': 'Y', 'U7': 'B', 'U8': 'Y', 'U9': 'G', 'D1': 'W', 'D2': 'W', 'D3': 'W', 'D4': 'W', 'D5': 'W', 'D6': 'W', 'D7': 'W', 'D8': 'W', 'D9': 'W'}
