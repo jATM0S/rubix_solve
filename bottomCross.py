@@ -70,6 +70,8 @@ def bottomCross(rubiks_cube):
         moves.print_2d_cube(rubiks_cube)
         sequence.extend(face_moves)
         sequence.append('rl')
+
+
     return sequence,rubiks_cube
 
 # print(bottomCross(rubiks_cube))

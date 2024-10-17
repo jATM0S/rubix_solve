@@ -47,19 +47,19 @@ def leftCorner_piece_position(rubiks_cube,required_corner_pieces):
                 leftCorner_piece_position=piece
     return leftCorner_piece_position
 
-def rightCorner_piece_position(rubiks_cube,white_corner_pieces):
-    rightCorner_piece_position=[]
-    required_pieces=[]
-    for pair in white_corner_pieces:
-        for position in pair:  # Iterate over each position in the current pair
-            if rubiks_cube[position] == rubiks_cube['F5']: 
-                required_pieces.append(pair)
-    print(required_pieces)
-    for piece in required_pieces:
-        for face in piece:
-            if rubiks_cube[face]==rubiks_cube['R5']:
-                rightCorner_piece_position=piece
-    return rightCorner_piece_position
+# def rightCorner_piece_position(rubiks_cube,white_corner_pieces):
+#     rightCorner_piece_position=[]
+#     required_pieces=[]
+#     for pair in white_corner_pieces:
+#         for position in pair:  # Iterate over each position in the current pair
+#             if rubiks_cube[position] == rubiks_cube['F5']: 
+#                 required_pieces.append(pair)
+#     print(required_pieces)
+#     for piece in required_pieces:
+#         for face in piece:
+#             if rubiks_cube[face]==rubiks_cube['R5']:
+#                 rightCorner_piece_position=piece
+#     return rightCorner_piece_position
 
 def bottomCorners(rubiks_cube):
     corner_pieces=[['F1','U7','L3'],['F3','U9','R1'],['F7','L9','D1'],['F9','R7','D3'],['U1','L1','B3'],['U3','R3','B1'],['L7','D7','B9'],['R9','D9','B7']]

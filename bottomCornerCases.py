@@ -108,7 +108,7 @@ def right_right_bottom(rubiks_cube):
     
     # Decide on the sequence of moves based on the condition
 
-    sequence.extend(["b'","u'",'b'])
+    sequence.extend(['b','u','u',"b'"])
     for move in sequence:
         rubiks_cube_copy=moves.execute_move(rubiks_cube_copy,move)
     sequence.extend(front_top_left(rubiks_cube_copy))    # Execute the sequence of moves and print the cube after each one

@@ -10,7 +10,7 @@ def top_cross(rubiks_cube):
             count+=1
     print(count)
     if count==4:
-        return sequence
+        return sequence,rubiks_cube
     if count==2:
         if all(rubiks_cube[pos]==rubiks_cube['U5'] for pos in ['U2','U8']) or all(rubiks_cube[pos]==rubiks_cube['U5'] for pos in ['U4','U6']):
             sequence=topCrossCases.line(rubiks_cube)

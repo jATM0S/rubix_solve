@@ -50,7 +50,7 @@ def piece_on_front_bottom(rubiks_cube):
     sequence = []
     
     # Decide on the sequence of moves based on the condition
-    if rubiks_cube['F4'] == rubiks_cube['F5']:
+    if rubiks_cube['F8'] == rubiks_cube['F5']:
         sequence = []
     else:
         sequence = ['f',"l'","u'",'l','f','f']
