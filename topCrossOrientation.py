@@ -16,6 +16,7 @@ def check_correct(rubiks_cube):
     return correct
 
 def correct_orientation(rubiks_cube):
+    print("correctOrientation")
     sequence=[]
     for x in range(4):
         if rubiks_cube['F2']==rubiks_cube['F5'] and rubiks_cube['F2']==rubiks_cube['F5'] and rubiks_cube['F2']==rubiks_cube['F5'] and rubiks_cube['F2']==rubiks_cube['F5']:
@@ -27,6 +28,7 @@ def correct_orientation(rubiks_cube):
     return sequence
     
 def opossite_colors(rubiks_cube):
+    print('Opposite Colors')
     sequence=[]
     opposite_colors={}
     opposite_colors[rubiks_cube['F5']]=rubiks_cube['B5']
@@ -53,6 +55,7 @@ def opossite_colors(rubiks_cube):
     return opposite,sequence
 
 def adjacent_colors(rubiks_cube):
+    print('adjacent colors')
     sequence=[]
     adjacent_colors={}
     adjacent_colors[rubiks_cube['F5']]=rubiks_cube['R5']

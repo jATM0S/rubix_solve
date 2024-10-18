@@ -101,6 +101,8 @@ def secondLayer(rubiks_cube):
     sequence=[]
     moves.print_2d_cube(rubiks_cube)
     for x in range(4):
+        if rubiks_cube['F4']==rubiks_cube['F5'] and rubiks_cube['F6']==rubiks_cube['F5'] and rubiks_cube['R4']==rubiks_cube['R5'] and rubiks_cube['R6']==rubiks_cube['R5'] and rubiks_cube['B4']==rubiks_cube['B5'] and rubiks_cube['B6']==rubiks_cube['B5'] and rubiks_cube['L4']==rubiks_cube['L5'] and rubiks_cube['L6']==rubiks_cube['L5']:
+            return sequence, rubiks_cube   
         # first search top for top pieces 
         top_pieces=dectect_top_pieces(rubiks_cube)
         print(top_pieces)

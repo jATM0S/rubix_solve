@@ -66,6 +66,9 @@ def bottomCorners(rubiks_cube):
     sequence=[]
     moves.print_2d_cube(rubiks_cube)
     for x in range(4):
+        if rubiks_cube['L9']==rubiks_cube['L5'] and rubiks_cube['F7']==rubiks_cube['F5'] and rubiks_cube['D1']==rubiks_cube['D5'] and rubiks_cube['F9']==rubiks_cube['F5'] and rubiks_cube['R7']==rubiks_cube['R5'] and rubiks_cube['D3']==rubiks_cube['D5'] and rubiks_cube['R9']==rubiks_cube['R5'] and rubiks_cube['B7']==rubiks_cube['B5'] and rubiks_cube['D9']==rubiks_cube['D5'] and rubiks_cube['L7']==rubiks_cube['L5'] and rubiks_cube['B9']==rubiks_cube['B5'] and rubiks_cube['D7']==rubiks_cube['D5']:
+            return sequence, rubiks_cube
+        
         required_corner_pieces=dectect_required_corner_pieces(rubiks_cube,corner_pieces)
         print(required_corner_pieces)
         leftCorner_piece=leftCorner_piece_position(rubiks_cube,required_corner_pieces)

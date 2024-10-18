@@ -52,7 +52,11 @@ def frontCenter_piece_position(rubiks_cube,white_side_pieces):
 def bottomCross(rubiks_cube):
     side_pieces=[['F2','U8'],['F4','L6'],['F6','R4'],['F8','D2'],['U2','B2'],['U4','L2'],['U6','R2'],['B4','R6'],['B6','L4'],['B8','D8'],['R8','D6'],['L8','D4']]
     sequence=[]
+    moves.print_2d_cube(rubiks_cube)
     for i in range(4):
+        if rubiks_cube['F8']==rubiks_cube['F5'] and rubiks_cube['R8']==rubiks_cube['R5'] and rubiks_cube['B8']==rubiks_cube['B5'] and rubiks_cube['L8']==rubiks_cube['L5'] and rubiks_cube['D2']==rubiks_cube['D5']and rubiks_cube['D4']==rubiks_cube['D5'] and rubiks_cube['D6']==rubiks_cube['D5'] and rubiks_cube['D8']==rubiks_cube['D5']:
+            return sequence,rubiks_cube
+        
         moves.print_2d_cube(rubiks_cube)
         required_side_pieces=dectect_required_side_pieces(rubiks_cube,side_pieces)
         print(required_side_pieces)
