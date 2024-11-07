@@ -83,4 +83,4 @@ def topCorners(rubiks_cube):
 
 
 # moves.print_2d_cube(rubiks_cube)
-print(topCorners(rubiks_cube))
+# print(topCorners(rubiks_cube))
