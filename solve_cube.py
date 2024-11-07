@@ -4,7 +4,7 @@ import bottomCorners
 import secondLayer
 import topCross
 import topCrossOrientation
-rubiks_cube={'F1': 'R', 'F2': 'W', 'F3': 'Y', 'F4': 'Y', 'F5': 'Y', 'F6': 'Y', 'F7': 'Y', 'F8': 'Y', 'F9': 'Y', 'R1': 'B', 'R2': 'O', 'R3': 'B', 'R4': 'O', 'R5': 'O', 'R6': 'O', 'R7': 'O', 'R8': 'O', 'R9': 'O', 'B1': 'Y', 'B2': 'Y', 'B3': 'O', 'B4': 'W', 'B5': 'W', 'B6': 'W', 'B7': 'W', 'B8': 'W', 'B9': 'W', 'L1': 'W', 'L2': 'R', 'L3': 'W', 'L4': 'R', 'L5': 'R', 'L6': 'R', 'L7': 'R', 'L8': 'R', 'L9': 'R', 'U1': 'B', 'U2': 'B', 'U3': 'O', 'U4': 'B', 'U5': 'B', 'U6': 'B', 'U7': 'B', 'U8': 'B', 'U9': 'R', 'D1': 'G', 'D2': 'G', 'D3': 'G', 'D4': 'G', 'D5': 'G', 'D6': 'G', 'D7': 'G', 'D8': 'G', 'D9': 'G'}
+rubiks_cube={'F1': 'R', 'F2': 'G', 'F3': 'Y', 'F4': 'G', 'F5': 'G', 'F6': 'G', 'F7': 'G', 'F8': 'G', 'F9': 'G', 'R1': 'G', 'R2': 'O', 'R3': 'R', 'R4': 'O', 'R5': 'O', 'R6': 'O', 'R7': 'O', 'R8': 'O', 'R9': 'O', 'B1': 'G', 'B2': 'B', 'B3': 'B', 'B4': 'B', 'B5': 'B', 'B6': 'B', 'B7': 'B', 'B8': 'B', 'B9': 'B', 'L1': 'Y', 'L2': 'R', 'L3': 'B', 'L4': 'R', 'L5': 'R', 'L6': 'R', 'L7': 'R', 'L8': 'R', 'L9': 'R', 'U1': 'O', 'U2': 'Y', 'U3': 'Y', 'U4': 'Y', 'U5': 'Y', 'U6': 'Y', 'U7': 'Y', 'U8': 'Y', 'U9': 'O', 'D1': 'W', 'D2': 'W', 'D3': 'W', 'D4': 'W', 'D5': 'W', 'D6': 'W', 'D7': 'W', 'D8': 'W', 'D9': 'W'}
 
 def solve_cube(rubiks_cube):
     sequence=[]
