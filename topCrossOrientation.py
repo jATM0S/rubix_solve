@@ -87,7 +87,7 @@ def topCrossOrientation(rubiks_cube):
     sequence=[]
     if check_correct(rubiks_cube):
         sequence.extend(correct_orientation(rubiks_cube))
-        return sequence
+        return sequence,rubiks_cube
 
     opossite,opossite_sequence=opossite_colors(rubiks_cube)
     print(opossite,opossite_sequence)

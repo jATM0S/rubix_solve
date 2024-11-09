@@ -20,7 +20,7 @@ def top_cross(rubiks_cube):
         sequence=topCrossCases.dot(rubiks_cube)
     for x in sequence:
         rubiks_cube=moves.execute_move(rubiks_cube,x)
-        moves.print_2d_cube(rubiks_cube)
+        # moves.print_2d_cube(rubiks_cube)
         
     return sequence,rubiks_cube
 

@@ -143,7 +143,7 @@ def piece_on_left_bottom(rubiks_cube):
     
     # Decide on the sequence of moves based on the condition
     if rubiks_cube['L8'] == rubiks_cube['F5']:
-        sequence = ["d'",'f','d',"f'"]
+        sequence = ['d','f',"d'","f'"]
     else:
         sequence = ["l'", "f'"]
     

@@ -27,20 +27,22 @@ def topCornersOrienation(rubiks_cube):
     
     # then rotate the top do the move again
     lastOrientation=[]
+    print("lastOrientation")
     testCube=rubiks_cube
     while testCube['F2']!=testCube['F5']:
         lastOrientation.append('u')
         testCube=moves.execute_move(testCube,'u')
 
     if lastOrientation==['u','u','u']:
-        lastOrientation=['u']
+        lastOrientation=["u'"]
+    print(lastOrientation)
     for x in lastOrientation:
         rubiks_cube=moves.execute_move(rubiks_cube,x)
         moves.print_2d_cube(rubiks_cube)
 
     sequence.extend(lastOrientation)
 
-    return rubiks_cube,sequence
+    return sequence,rubiks_cube
     
 # moves.print_2d_cube(rubiks_cube)
 # print(topCornersOrienation(rubiks_cube))
