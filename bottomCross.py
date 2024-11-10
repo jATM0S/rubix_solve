@@ -67,6 +67,7 @@ def bottomCross(rubiks_cube):
         face_moves=bring_piece_to_F8(rubiks_cube,side_pieces,required_piece)
         print(face_moves)
         for move in face_moves:
+            print(move)
             rubiks_cube = moves.execute_move(rubiks_cube, move)
             moves.print_2d_cube(rubiks_cube) 
         

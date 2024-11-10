@@ -49,7 +49,7 @@ def topCorners(rubiks_cube):
     sequence=[]
     # if oriented correctly returns as it is
     if checkTopCorners(rubiks_cube):
-        return rubiks_cube,sequence
+        return sequence,rubiks_cube
     # find the correct corner if it exists
 
     requiredCornerExists,cornerToFSequence=findRequiredCorner(rubiks_cube)

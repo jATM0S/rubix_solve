@@ -5,7 +5,7 @@ def line(rubiks_cube):
     sequence=[]
     print("line")
     if rubiks_cube['U2']==rubiks_cube['U5'] and rubiks_cube['U8']==rubiks_cube['U5']:
-        sequence=['r','b','u',"b'","u'"]
+        sequence=['r','b','u',"b'","u'","r'"]
     if rubiks_cube['U4']==rubiks_cube['U5'] and rubiks_cube['U6']==rubiks_cube['U5']:
         sequence.extend(['f']+frequentSequences.righty_sequence()+["f'"])
     print(sequence)

@@ -173,7 +173,7 @@ def piece_on_back_bottom(rubiks_cube):
     sequence = []
     
     # Decide on the sequence of moves based on the condition
-    if rubiks_cube['R8'] == rubiks_cube['F5']:
+    if rubiks_cube['B8'] == rubiks_cube['F5']:
         sequence = ["d'","d'",'f','d','d',"f'"]
     else:
         sequence = ["d'","r",'d','f']
