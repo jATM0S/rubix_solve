@@ -6,59 +6,160 @@ import topCross
 import topCrossOrientation
 import topCorners
 import topCornersOrientation
-# rubiks_cube={'F1': 'R', 'F2': 'B', 'F3': 'W', 'F4': 'R', 'F5': 'Y', 'F6': 'W', 'F7': 'W', 'F8': 'W', 'F9': 'W', 'R1': 'B', 'R2': 'Y', 'R3': 'Y', 'R4': 'R', 'R5': 'G', 'R6': 'G', 'R7': 'R', 'R8': 'Y', 'R9': 'W', 'B1': 'O', 'B2': 'W', 'B3': 'G', 'B4': 'Y', 'B5': 'W', 'B6': 'G', 'B7': 'G', 'B8': 'R', 'B9': 'O', 'L1': 'Y', 'L2': 'W', 'L3': 'B', 'L4': 'O', 'L5': 'B', 'L6': 'B', 'L7': 'G', 'L8': 'Y', 'L9': 'R', 'U1': 'R', 'U2': 'B', 'U3': 'B', 'U4': 'G', 'U5': 'O', 'U6': 'O', 'U7': 'Y', 'U8': 'O', 'U9': 'O', 'D1': 'B', 'D2': 'O', 'D3': 'G', 'D4': 'R', 'D5': 'R', 'D6': 'B', 'D7': 'Y', 'D8': 'G', 'D9': 'O'}
+import validate
 
-def checkSolved(rubiks_cube):
-    solved=False
-    faces=['F','L','R','B','U','D']
+
+def checkCube(rubiks_cube):
+    # check for different center colors
+    if len({rubiks_cube['F5'], rubiks_cube['L5'], rubiks_cube['R5'], rubiks_cube['B5'], rubiks_cube['U5'], rubiks_cube['D5']}) != 6:
+        return False,("There are no 6 distinct center colors.")
+        
+    # check for the number of colors
+    faces=['F','R','B','L','U','D']
+    # getting colors and its dictionary for number of colored stickers
+    colors={rubiks_cube['F5']:0,rubiks_cube['R5']:0,rubiks_cube['L5']:0,rubiks_cube['B5']:0,rubiks_cube['U5']:0,rubiks_cube['D5']:0}
     for face in faces:
-        if not all(rubiks_cube[f'{face}5']==rubiks_cube[f'{face}{x}'] for x in ['1','2','3','4','6','7','8','9']): 
-            return False
-    return True
+        for x in range(1,10):
+            if rubiks_cube[f'{face}{x}'] in colors:
+                colors[rubiks_cube[f'{face}{x}']] += 1
+
+    wrongColors = {color: count for color, count in colors.items() if count != 9}
+            
+    if wrongColors: return False, (f"The number of colors are not even for the following colors: "+", ".join(f"{color}: {count}" for color, count in wrongColors.items()) )
+    
+    # check availability of side pieces
+    neededSidePieces={frozenset({rubiks_cube['F5'], rubiks_cube['L5']}),    
+                      frozenset({rubiks_cube['F5'], rubiks_cube['R5']}),
+                      frozenset({rubiks_cube['F5'], rubiks_cube['U5']}),  
+                      frozenset({rubiks_cube['F5'], rubiks_cube['D5']}),    
+                      frozenset({rubiks_cube['R5'], rubiks_cube['U5']}),    
+                      frozenset({rubiks_cube['R5'], rubiks_cube['D5']}),    
+                      frozenset({rubiks_cube['L5'], rubiks_cube['U5']}),    
+                      frozenset({rubiks_cube['L5'], rubiks_cube['D5']}),
+                      frozenset({rubiks_cube['B5'], rubiks_cube['L5']}),    
+                      frozenset({rubiks_cube['B5'], rubiks_cube['R5']}),
+                      frozenset({rubiks_cube['B5'], rubiks_cube['U5']}),  
+                      frozenset({rubiks_cube['B5'], rubiks_cube['D5']})}
+
+    sidePieces={frozenset({rubiks_cube['F4'], rubiks_cube['L6']}),
+                frozenset({rubiks_cube['F6'], rubiks_cube['R4']}),
+                frozenset({rubiks_cube['F2'], rubiks_cube['U8']}),
+                frozenset({rubiks_cube['F8'], rubiks_cube['D2']}),  
+                frozenset({rubiks_cube['B4'], rubiks_cube['R6']}), 
+                frozenset({rubiks_cube['B6'], rubiks_cube['L4']}),
+                frozenset({rubiks_cube['B2'], rubiks_cube['U2']}),
+                frozenset({rubiks_cube['B8'], rubiks_cube['D8']}),
+                frozenset({rubiks_cube['R2'], rubiks_cube['U6']}),
+                frozenset({rubiks_cube['R8'], rubiks_cube['D6']}),    
+                frozenset({rubiks_cube['L2'], rubiks_cube['U4']}),
+                frozenset({rubiks_cube['L8'], rubiks_cube['D4']}),}
+    if  sidePieces!=neededSidePieces:
+        return False, ("The side pieces are incorrect.")
+
+
+    # check availability of corner pieces
+    neededCornerPieces={frozenset({rubiks_cube['F5'],rubiks_cube['L5'],rubiks_cube['U5']}),
+                        frozenset({rubiks_cube['F5'],rubiks_cube['L5'],rubiks_cube['D5']}),
+                        frozenset({rubiks_cube['F5'],rubiks_cube['R5'],rubiks_cube['U5']}),
+                        frozenset({rubiks_cube['F5'],rubiks_cube['R5'],rubiks_cube['D5']}),
+                        frozenset({rubiks_cube['B5'],rubiks_cube['L5'],rubiks_cube['U5']}),
+                        frozenset({rubiks_cube['B5'],rubiks_cube['L5'],rubiks_cube['D5']}),
+                        frozenset({rubiks_cube['B5'],rubiks_cube['R5'],rubiks_cube['U5']}),
+                        frozenset({rubiks_cube['B5'],rubiks_cube['R5'],rubiks_cube['D5']}),}
+    cornerPieces = {
+    frozenset({rubiks_cube['F1'], rubiks_cube['L3'], rubiks_cube['U7']}),  # Front-Left-Up
+    frozenset({rubiks_cube['F7'], rubiks_cube['L9'], rubiks_cube['D1']}),  # Front-Left-Down
+    frozenset({rubiks_cube['F3'], rubiks_cube['R1'], rubiks_cube['U9']}),  # Front-Right-Up
+    frozenset({rubiks_cube['F9'], rubiks_cube['R7'], rubiks_cube['D3']}),  # Front-Right-Down
+    frozenset({rubiks_cube['B1'], rubiks_cube['R3'], rubiks_cube['U3']}),  # Back-Right-Up
+    frozenset({rubiks_cube['B7'], rubiks_cube['R9'], rubiks_cube['D9']}),  # Back-Right-Down
+    frozenset({rubiks_cube['B3'], rubiks_cube['L1'], rubiks_cube['U1']}),  # Back-Left-Up
+    frozenset({rubiks_cube['B9'], rubiks_cube['L7'], rubiks_cube['D7']}),  # Back-Left-Down
+    }
+    if neededCornerPieces!=cornerPieces:
+        return False, ("The corner piece is incorrect.")
+
+    return True,""
 
 def solve_cube(rubiks_cube):
     sequence=[]
-    print("bottomcross")
-    crossSequence,rubiks_cube=bottomCross.bottomCross(rubiks_cube)
-    sequence.extend(crossSequence)
-    print(crossSequence)
 
-    print("bottomcorners")
-    cornersSequence,rubiks_cube=bottomCorners.bottomCorners(rubiks_cube)
-    sequence.extend(cornersSequence)
-    print(cornersSequence)
+    solvable,error=checkCube(rubiks_cube)
+    if solvable==False:return [],False,error
     
-    print("2nd layer")
-    secondLayerSequence,rubiks_cube=secondLayer.secondLayer(rubiks_cube)
-    sequence.extend(secondLayerSequence)
-    print(secondLayerSequence)
-    
-    print("topCross")
-    topCrossSequence,rubiks_cube=topCross.top_cross(rubiks_cube)
-    sequence.extend(topCrossSequence)
-    print(topCrossSequence)
-    
-    print("topcrossOrientation")
-    topCrossOrientationSequence,rubiks_cube=topCrossOrientation.topCrossOrientation(rubiks_cube)
-    sequence.extend(topCrossOrientationSequence)
-    print(topCrossOrientationSequence)
+    try:
+        print("bottomcross")
+        crossSequence,rubiks_cube=bottomCross.bottomCross(rubiks_cube)
+        sequence.extend(crossSequence)
+        print(crossSequence)
+        solvable=validate.checkBottomCross(rubiks_cube)
+    except Exception as e:
+        solvable=False
+    if solvable==False:return [],False,(f'Step 1 failed, there is a problem with side of {rubiks_cube["D5"]} color.')
 
-    print("topCorners")
-    topCornersSequence,rubiks_cube=topCorners.topCorners(rubiks_cube)
-    sequence.extend(topCornersSequence)
-    print(topCornersSequence)
-
-    print("topCornersOrientation")
-    topCornersOrientationSequence,rubiks_cube=topCornersOrientation.topCornersOrienation(rubiks_cube)
-    sequence.extend(topCornersOrientationSequence)
-    print(topCornersOrientationSequence)
-    
+    try:
+        print("bottomcorners")
+        cornersSequence,rubiks_cube=bottomCorners.bottomCorners(rubiks_cube)
+        sequence.extend(cornersSequence)
+        print(cornersSequence)
+        solvable=validate.checkBottomCorners(rubiks_cube)
+    except Exception as e:
+        solvable=False
+    if solvable==False:return [],False,(f'Step 2 failed, there is a problem with corner of {rubiks_cube["D5"]} color.')
+        
+    try:
+        print("2nd layer")
+        secondLayerSequence,rubiks_cube=secondLayer.secondLayer(rubiks_cube)
+        sequence.extend(secondLayerSequence)
+        print(secondLayerSequence)
+        solvable=validate.checkSecondLayer(rubiks_cube)
+    except Exception as e:
+        solvable=False
+    if solvable==False:return [],False,(f'Step 3 failed, there is a problem with side of second layer.')
+        
+    try:
+        print("topCross")
+        topCrossSequence,rubiks_cube=topCross.top_cross(rubiks_cube)
+        sequence.extend(topCrossSequence)
+        print(topCrossSequence)
+        solvable=validate.checkTopCross(rubiks_cube)
+    except Exception as e:
+        solvable=False
+    if solvable==False:return [],False,(f'Step 4 failed, there is a problem with side of {rubiks_cube["U5"]} color.')
+        
+    try:
+        print("topcrossOrientation")
+        topCrossOrientationSequence,rubiks_cube=topCrossOrientation.topCrossOrientation(rubiks_cube)
+        sequence.extend(topCrossOrientationSequence)
+        print(topCrossOrientationSequence)
+        solvable=validate.checkTopCrossOrientation(rubiks_cube)
+    except Exception as e:
+        solvable=False
+    if solvable==False:return [],False,(f'Step 5 failed, there is a problem with side of {rubiks_cube["D5"]} color.')
+        
+    try:
+        print("topCorners")
+        topCornersSequence,rubiks_cube=topCorners.topCorners(rubiks_cube)
+        sequence.extend(topCornersSequence)
+        print(topCornersSequence)
+        solvable=validate.checkTopCorners(rubiks_cube)
+    except Exception as e:
+        solvable=False
+    if solvable==False:return [],False,(f'Step 6 failed, there is a problem with corner of {rubiks_cube["U5"]} color.')
+        
+    try:
+        print("topCornersOrientation")
+        topCornersOrientationSequence,rubiks_cube=topCornersOrientation.topCornersOrienation(rubiks_cube)
+        sequence.extend(topCornersOrientationSequence)
+        print(topCornersOrientationSequence)
+        solvable=validate.checkTopCornersOrietation(rubiks_cube)
+    except Exception as e:
+        solvable=False
+    if solvable==False:return [],False,(f'Step 7 failed, there is a problem with corner of {rubiks_cube["U5"]} color.')
+        
     moves.print_2d_cube(rubiks_cube)
-    if checkSolved(rubiks_cube):
-        return sequence,True
-    else:
-        return sequence,False
-    # return sequence
+
+    return sequence,True,""
 
 # print(solve_cube(rubiks_cube))
 # print(checkSolved(rubiks_cube))

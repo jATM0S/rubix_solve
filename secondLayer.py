@@ -48,7 +48,9 @@ def move_for_required_face(rubiks_cube,top_pieces):
         rubiks_cube=moves.execute_move(rubiks_cube,move)
 
     # move the top piece until it matches the front
-    while rubiks_cube['F2'] != rubiks_cube['F5'] or (rubiks_cube['U8'] != rubiks_cube['L5'] and rubiks_cube['U8'] != rubiks_cube['R5']):
+    attempt=0
+    while rubiks_cube['F2'] != rubiks_cube['F5'] or (rubiks_cube['U8'] != rubiks_cube['L5'] and rubiks_cube['U8'] != rubiks_cube['R5']) and attempt<4:
+        attempt+=1
         rubiks_cube=moves.execute_move(rubiks_cube,'u')
         top_move.append('u')
 

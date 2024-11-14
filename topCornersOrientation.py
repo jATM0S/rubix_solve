@@ -10,7 +10,8 @@ def topCornersOrienation(rubiks_cube):
         cornerMatchSequence=[]
         # do it until top color matches with the top center
         print("matching top corner")
-        while rubiks_cube['U3']!=rubiks_cube['U5']:
+        attempt=0
+        while rubiks_cube['U3']!=rubiks_cube['U5'] and attempt <4:
             cornerMatchSequence.extend(['r','d',"r'","d'"])
             for x in ['r','d',"r'","d'"]:
                 rubiks_cube=moves.execute_move(rubiks_cube,x)
@@ -29,7 +30,9 @@ def topCornersOrienation(rubiks_cube):
     lastOrientation=[]
     print("lastOrientation")
     testCube=rubiks_cube
-    while testCube['F2']!=testCube['F5']:
+    attempt=0
+    while testCube['F2']!=testCube['F5']and attempt < 4:
+        attempt+=1
         lastOrientation.append('u')
         testCube=moves.execute_move(testCube,'u')
 
