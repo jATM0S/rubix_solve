@@ -148,10 +148,10 @@ def solve_cube(rubiks_cube):
         sequence.extend(crossSequence)
         print(crossSequence)
         solvable=validate.checkBottomCross(rubiks_cube)
-        for x in crossSequence:
-            sequenceCube=moves.execute_move(sequenceCube,x)
-        if sequenceCube!=rubiks_cube:
-            solvable=False
+        # for x in crossSequence:
+        #     sequenceCube=moves.execute_move(sequenceCube,x)
+        # if sequenceCube!=rubiks_cube:
+        #     solvable=False
     except Exception as e:
         solvable=False
     if solvable==False:return [],False,(f'Step 1 failed, there is a problem with side of {rubiks_cube["D5"]} color.')
@@ -162,10 +162,10 @@ def solve_cube(rubiks_cube):
         sequence.extend(cornersSequence)
         print(cornersSequence)
         solvable=validate.checkBottomCorners(rubiks_cube)
-        for x in cornersSequence:
-            sequenceCube=moves.execute_move(sequenceCube,x)
-        if sequenceCube!=rubiks_cube:
-            solvable=False
+        # for x in cornersSequence:
+        #     sequenceCube=moves.execute_move(sequenceCube,x)
+        # if sequenceCube!=rubiks_cube:
+        #     solvable=False
     except Exception as e:
         solvable=False
     if solvable==False:return [],False,(f'Step 2 failed, there is a problem with corner of {rubiks_cube["D5"]} color.')
@@ -176,10 +176,10 @@ def solve_cube(rubiks_cube):
         sequence.extend(secondLayerSequence)
         print(secondLayerSequence)
         solvable=validate.checkSecondLayer(rubiks_cube)
-        for x in secondLayerSequence:
-            sequenceCube=moves.execute_move(sequenceCube,x)
-        if sequenceCube!=rubiks_cube:
-            solvable=False
+        # for x in secondLayerSequence:
+        #     sequenceCube=moves.execute_move(sequenceCube,x)
+        # if sequenceCube!=rubiks_cube:
+        #     solvable=False
     except Exception as e:
         solvable=False
     if solvable==False:return [],False,(f'Step 3 failed, there is a problem with side of second layer.')
@@ -190,10 +190,10 @@ def solve_cube(rubiks_cube):
         sequence.extend(topCrossSequence)
         print(topCrossSequence)
         solvable=validate.checkTopCross(rubiks_cube)
-        for x in topCrossSequence:
-            sequenceCube=moves.execute_move(sequenceCube,x)
-        if sequenceCube!=rubiks_cube:
-            solvable=False
+        # for x in topCrossSequence:
+        #     sequenceCube=moves.execute_move(sequenceCube,x)
+        # if sequenceCube!=rubiks_cube:
+        #     solvable=False
     except Exception as e:
         solvable=False
     if solvable==False:return [],False,(f'Step 4 failed, there is a problem with side of {rubiks_cube["U5"]} color.')
@@ -204,10 +204,10 @@ def solve_cube(rubiks_cube):
         sequence.extend(topCrossOrientationSequence)
         print(topCrossOrientationSequence)
         solvable=validate.checkTopCrossOrientation(rubiks_cube)
-        for x in topCrossOrientationSequence:
-            sequenceCube=moves.execute_move(sequenceCube,x)
-        if sequenceCube!=rubiks_cube:
-            solvable=False
+        # for x in topCrossOrientationSequence:
+        #     sequenceCube=moves.execute_move(sequenceCube,x)
+        # if sequenceCube!=rubiks_cube:
+        #     solvable=False
     except Exception as e:
         solvable=False
     if solvable==False:return [],False,(f'Step 5 failed, there is a problem with side of {rubiks_cube["D5"]} color.')
@@ -218,10 +218,10 @@ def solve_cube(rubiks_cube):
         sequence.extend(topCornersSequence)
         print(topCornersSequence)
         solvable=validate.checkTopCorners(rubiks_cube)
-        for x in topCornersSequence:
-            sequenceCube=moves.execute_move(sequenceCube,x)
-        if sequenceCube!=rubiks_cube:
-            solvable=False
+        # for x in topCornersSequence:
+        #     sequenceCube=moves.execute_move(sequenceCube,x)
+        # if sequenceCube!=rubiks_cube:
+        #     solvable=False
     except Exception as e:
         solvable=False
     if solvable==False:return [],False,(f'Step 6 failed, there is a problem with corner of {rubiks_cube["U5"]} color.')
@@ -232,16 +232,20 @@ def solve_cube(rubiks_cube):
         sequence.extend(topCornersOrientationSequence)
         print(topCornersOrientationSequence)
         solvable=validate.checkTopCornersOrietation(rubiks_cube)
-        for x in topCornersOrientationSequence:
-            sequenceCube=moves.execute_move(sequenceCube,x)
-        if sequenceCube!=rubiks_cube:
-            solvable=False
+        # for x in topCornersOrientationSequence:
+        #     sequenceCube=moves.execute_move(sequenceCube,x)
+        # if sequenceCube!=rubiks_cube:
+        #     solvable=False
     except Exception as e:
         solvable=False
     if solvable==False:return [],False,(f'Step 7 failed, there is a problem with corner of {rubiks_cube["U5"]} color.')
         
     moves.print_2d_cube(rubiks_cube)
-
+    sequence=optimize(sequence)
+    for x in sequence:
+        sequenceCube=moves.execute_move(sequenceCube,x)
+    if sequenceCube!=rubiks_cube:
+        return [],False,"sequence error"
     return sequence,True,""
 
 # print(solve_cube(rubiks_cube))
