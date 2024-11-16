@@ -206,4 +206,4 @@ def testOptimization(cube):
         return cubes,reason
 
 # print(testValidation(cube))
-print(testOptimization(cube))
+# print(testOptimization(cube))
